@@ -2,7 +2,9 @@
  * main - print the string in the put function
  *
  * description: using the main function
+ *
  * this program prints "Progaming is like building a multilingual puzzle
+ *
  * return: 0
  */
 #include <stdio.h>
