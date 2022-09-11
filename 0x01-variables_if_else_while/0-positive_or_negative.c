@@ -1,5 +1,6 @@
 #include <stdib.h>
 #include <time.h>
+#include <stdio.h>
 
 /**
 *main this prject works on completing a source code
