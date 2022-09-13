@@ -1,18 +1,14 @@
-#include "main.h"
 /**
- * main - check the code.
+ * main - check the code
  *
  * Return: Always 0.
  */
 int main(void)
 #include<stdio.h>
-int main()
+int main(void)
+for (char c = 'a'; c <= 'z'; c++)
 {
-char ch = 'a';
-while (ch <= 'z');
-{
-putchar("%c", ch);
-ch++;
+putchar(c);
 }
 return 0;
 }
