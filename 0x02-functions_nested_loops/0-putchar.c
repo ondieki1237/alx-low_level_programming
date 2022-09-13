@@ -1,12 +1,7 @@
-/**
- * main - check the code
- *
- * Return: Always 0.
- */
 #include <stdio.h>
 int main()
 {
-char ch = '_putchar';
+char ch = 'G\n';
 putchar(ch);
 return (0);
 }
