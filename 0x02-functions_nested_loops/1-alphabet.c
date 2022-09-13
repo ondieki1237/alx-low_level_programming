@@ -1,14 +1,15 @@
+#include <main.h>
 /**
  * main - check the code
  *
  * Return: Always 0.
  */
-int main(void)
-#include<stdio.h>
-int main(void)
-for (char c = 'a'; c <= 'z'; c++)
+void print_alphabet(void)
 {
-putchar(c);
+char c;
+for (c = 'a'; c <= 'z'; c++)
+{
+_putchar(c);
 }
-return 0;
+putchar('\n');
 }
