@@ -1,7 +1,2 @@
-#include <stdio.h>
-int main()
-{
-char ch = '_putchar';
-putchar(ch);
-return (0);
-}
+#include "1-alphabet.c"
+#include "0-putchar.c"
