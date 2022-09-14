@@ -1,3 +1,5 @@
+#include "main.h"
+#include <stdio.h>
 /**
  *_abs - function that computes absolute value of an integer
  *@c: is the int that will be used in the argument of the function
