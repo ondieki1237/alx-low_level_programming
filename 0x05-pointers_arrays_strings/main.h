@@ -1,9 +1,9 @@
-#ifndef MAIN.H
-#define MAIN.H
+#ifndef MAIN_H
+#define MAIN_H
 
 /**
-*int prototypes()
-*void protorypes()
+* void prototypes()
+* int prototypes()
 */
 
 void reset_to_98(int *n);
@@ -16,5 +16,6 @@ void puts2(char *str);
 void puts_half(char *str);
 void print_array(int *a, int n);
 char *_strcpy(char *dest, char *src);
+int _atoi(char *str);
 
-#endif /*MAIN.H*/
+#endif /*MAIN_H*/
