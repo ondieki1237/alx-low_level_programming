@@ -4,17 +4,14 @@
  * factorial: - functio that returns a factorial of a number
  * @n: - value of the integer
  *
- * Return: Always 0.
+ * Return: factorial of the number
  */
 int factorial(int n)
 {
-if (n == 0)
+if (n < 0)
+return (-1);
+
+else if (n == 0)
 return (1);
-return (n) * factorial(n - 1);
-}
-int main()
-{
-int num = 5;
-printf("Factorial of %d is %d", num, factorial(num));
-return (0);
+return (n * factorial(n - 1));
 }
