@@ -9,38 +9,46 @@
  */
 int is_palindrome(char *s)
 {
-int len, i;
-if (i < len && str[i] == str[len])
-return (palindromeChecker(str, len - 1, i + 1));
-if (str[i] != str[len])
-return (0);
-return (1);
+	int flag = 1;
+
+	check(s, 0, _strlen_recursion(s) - 1, &flag);
+	return (flag);
 }
 
 /**
- * _strlen_recursion - returns the length of a string
+ * check - checks if a string is a palindrome
+ * @s: string to be checked
+ * @start: start index
+ * @end: end index
+ * @flag: flag to indicate if a string is a palindrome
  *
- * @s: the string to check the length of
+ * Return: void
+ */
+void check(char *s, int start, int end, int *flag)
+{
+if (start <= end)
+{
+if (s[start] == s[end])
+*flag *= 1;
+else
+*flag *= 0;
+check(s, start + 1, end - 1, flag);
+}
+}
+
+/**
+ * _strlen_recursion - calculates the length of a string
+ * @s: string to be used
  *
- * Return: an integer that displays the length of the string
+ * Return: length of the string
  */
 int _strlen_recursion(char *s)
 {
+int sum = 0;
 if (*s != '\0')
-return (1 + _strlen_recursion(s + 1));
-return (0);
-}
-
-/**
- * is_palindrome - checks to see if a string is a palindrome
- *
- * @s: the string to check
- *
- * Return: 1 if it's a palindrome, 2 if it's not
- */
-int is_palindrome(char *s)
 {
-int i = 0;
-int length = _strlen_recursion(s) - 1;
-return (palindromeChecker(s, length, i));
+sum++;
+sum += _strlen_recursion(s + 1);
+}
+return (sum);
 }
