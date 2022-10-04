@@ -1,15 +1,14 @@
 #include "main.h"
 #include <stdlib.h>
 #include <stdio.h>
-
 /**
- * *_strdup - function that returns a newly allocated malloc
- * @str - a copy of the returned dtring
- * return - null if str is null and a pointer if sucessful
+ * _strdup - returns a pointer to a newly allocated space in memory
+ * @str: The string to copy
+ * Return: a pointer to the duplicated string, NULL if insufficient memory
+ * or if @str is NULL
  */
 char *_strdup(char *str)
 {
-
 char *ar;
 unsigned int i = 0;
 unsigned int j = 0;
@@ -25,6 +24,6 @@ while (str[j])
 ar[j] = str[j];
 j++;
 }
-ar[j+1] = 0;
+ar[j + 1] = 0;
 return (ar);
 }
