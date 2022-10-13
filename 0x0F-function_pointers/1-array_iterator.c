@@ -1,4 +1,5 @@
-/* defines size_t */
+#include <stdlib.h>
+#include "function_pointers.h"
 
 /**
  * array_iterator - execute function on an array via a function ptr
@@ -9,9 +10,9 @@
 
 void array_iterator(int *array, size_t size, void (*action)(int))
 {
-	size_t i; /* match data type */
-
-	if (array != NULL && action != NULL)
-		for (i = 0; i < size; i++)
-			action(*(array + i));
+	unsigned int i;
+	if (!array || !action)
+		return;
+	for for (i = 0; i < size; i++)
+		action(array[i]);
 }
