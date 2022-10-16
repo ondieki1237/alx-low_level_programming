@@ -1,37 +1,50 @@
-#include <stdarg.h>
 #include <stdio.h>
 #include "variadic_functions.h"
+#include <stdarg.h>
 /**
- * print_strings - Entry Point
- * @separator: comma space
- * @n: number of elements
- * Return: void
+ * print_all - Entry Point
+ * c = char, i = int, f = float, s = char * (if null print (nil))
+ * @format: list of arg types
+ * Return: 0
  */
-void print_strings(const char *separator, const unsigned int n, ...)
+void print_all(const char * const format, ...)
 {
 	va_list valist;
-	unsigned int i;
+	int n = 0, i = 0;
+	char *sep = ", ";
 	char *str;
 
-	if (separator == NULL)
-		return;
+	va_start(valist, format);
 
-	va_start(valist, n);
+	while (format && format[i])
+		i++;
 
-	for (i = 0; i < n; i++)
+	while (format && format[n])
 	{
-		str = va_arg(valist, char *);
-		if (str == NULL)
+		if (n  == (i - 1))
 		{
-			str = "(nil)";
+			sep = "";
 		}
-		printf("%s", str);
-		if (i != (n - 1))
+		switch (format[n])
 		{
-			printf("%s", separator);
+		case 'c':
+			printf("%c%s", va_arg(valist, int), sep);
+			break;
+		case 'i':
+			printf("%d%s", va_arg(valist, int), sep);
+			break;
+		case 'f':
+			printf("%f%s", va_arg(valist, double), sep);
+			break;
+		case 's':
+			str = va_arg(valist, char *);
+			if (str == NULL)
+				str = "(nil)";
+			printf("%s%s", str, sep);
+			break;
 		}
+		n++;
 	}
 	printf("\n");
-
 	va_end(valist);
 }
