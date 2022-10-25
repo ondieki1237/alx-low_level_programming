@@ -1,52 +1,41 @@
 #include "lists.h"
-#include <stdio.h>
-/**
-* _strlen - find string length
-* @str: string
-* Return: length
-*/
-int _strlen(const char *str)
-{
-int len;
-
-for (len = 0; str[len] != '\0'; len++)
-;
-return (len);
-}
+#include <string.h>
 
 /**
-* add_node_end - add node to end of linked list
-* @head: linked list
-* @str: data for new node
-* Return: address of new element, or NULL if failed
+* add_node_end - adds a node at the end, my dude
+* @head: points to the head
+* @str: the string to put into it
+* Return: pointer to new node or NULL
 */
 list_t *add_node_end(list_t **head, const char *str)
 {
-list_t *new_node, *tmp; /* create new node */
+list_t *newNode, *last;
+unsigned int i;
 
-if (str == NULL) /* validate input */
-return (NULL);
-if (strdup(str) == NULL) /* check if malloc errored */
-return (NULL);
-
-new_node = malloc(sizeof(list_t)); /* malloc for new node */
-if (new_node == NULL)
+if (!(head && str))
 return (NULL);
 
-new_node->str = strdup(str); /* set node values */
-new_node->len = _strlen(str);
-new_node->next = NULL;
+newNode = malloc(sizeof(list_t));
+if (!newNode)
+return (NULL);
 
-if (*head == NULL) /* if no list nodes, set new_node to beginning */
-*head = new_node;
-else
+newNode->str = strdup(str);
+for (i = 0; str[i]; i++)
+{}
+newNode->len = i;
+newNode->next = NULL;
+
+if (!*head)
 {
-tmp = *head;
-
-while (tmp->next != NULL)
-tmp = tmp->next;
-tmp->next = new_node;
+*head = newNode;
+return (newNode);
 }
 
-return (new_node);
+last = *head;
+while (last->next)
+{
+last = last->next;
+}
+last->next = newNode;
+return (newNode);
 }
