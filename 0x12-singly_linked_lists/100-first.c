@@ -1,13 +1,10 @@
 #include <stdio.h>
-include "lists.h"
-
 /**
-* execute_before_main - executes this function before main function
-* Note: made possible by prior declaration of "__attribute__ ((constructor))"
-*/
-
-void __attribute__ ((constructor)) execute_before_main()
+  * b - prints from init by the loader before main
+  */
+void b(void) __attribute__ ((constructor));
+void b(void)
 {
-printf("You're beat! and yet, you must allow,\n");
-printf("I bore my house upon my back!\n");
+	printf("You're beat! and yet, you must allow,\n");
+	printf("I bore my house upon my back!\n");
 }
