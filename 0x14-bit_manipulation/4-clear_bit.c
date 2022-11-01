@@ -8,12 +8,9 @@
 */
 int clear_bit(unsigned long int *n, unsigned int index)
 {
-unsigned int max_bits;
-unsigned long int seth = 1;
-max_bits = (sizeof(unsigned long int) * 8);
-if (index > max_bits)
+if (index >= sizeof(n) * 8)
 return (-1);
-seth = ~(seth << index);
-*n = (*n | seth);
+if (*n & 1L << index)
+*n ^= 1L << index;
 return (1);
 }
