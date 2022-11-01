@@ -1,11 +1,11 @@
 #include "main.h"
 #include <stdio.h>
 /**
-* flip_bit - returns a number of bits you would need
-* @n: number
-* @index: index within binary number
-* Return: returns the number of bits
-*/
+ * flip_bits - determine how many bits to flip to get from one num to another
+ * @n: number
+ * @m: number2
+ * Return: how many bits differ
+ */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
 unsigned int diff_bits = 0;
