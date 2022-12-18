@@ -1,19 +1,36 @@
-#include <stdio.h>
 #include "main.h"
-/**
- * main - Entry point
- * Description: Classic FizzBuzz problem
- * Return: Always 0, Success!
- */
-int main(void)
-{
-	int i;
-	char result[4][9] = {"%d", "Fizz", "Buzz", "FizzBuzz"};
+#include <stdio.h>
 
-	for (i = 1; i < 101; i++)
+/**
+ * print_number - prints # using _putchar function
+ * @n: the integer to print
+ *
+ * Return: void
+ */
+void print_number(int n)
+{
+	int copy, nth, size = 1, ones = n % 10;
+
+	n /= 10;
+	copy = n;
+	if (ones < 0)
 	{
-		printf(result[(i % 3 == 0) + (2 * (i % 5 == 0))], i);
-		printf(i < 100 ? " " : "\n");
+		ones *= -1, copy *= -1, n *= -1;
+		_putchar('-');
 	}
-	return (0);
+	if (copy > 0)
+	{
+		while (copy / 10 != 0)
+		{
+			copy /= 10, size *= 10;
+		}
+		while (size > 0)
+		{
+			nth = n / size;
+			_putchar('0' + nth);
+			n -= nth * size;
+			size /= 10;
+		}
+	}
+	_putchar('0' + ones);
 }
