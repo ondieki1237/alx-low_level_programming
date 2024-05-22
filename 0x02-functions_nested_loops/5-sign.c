@@ -1,7 +1,9 @@
-#include "main.h"/**
- * print_sign - function that prints the sign of a number
- * @n: is the int that will use the argument of the function
- * return: (0)
+#include "main.h"
+
+/**
+ * print_sign -> prints based on condition
+ * @n: argument passed
+ * Return: 1, 0 -1
  */
 int print_sign(int n)
 {
@@ -10,14 +12,14 @@ int print_sign(int n)
 		_putchar('+');
 		return (1);
 	}
-	else if (n < 0)
-	{
-		_putchar('-');
-		return (-1);
-	}
-	else
+	else if (n == 0)
 	{
 		_putchar('0');
 		return (0);
+	}
+	else
+	{
+		_putchar('-');
+		return (-1);
 	}
 }

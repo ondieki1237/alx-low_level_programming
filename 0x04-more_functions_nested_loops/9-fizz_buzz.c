@@ -2,35 +2,35 @@
 #include <stdio.h>
 
 /**
- * print_number - prints # using _putchar function
- * @n: the integer to print
- *
- * Return: void
+ *  * main - prints the numbers from 1 to 100, followed by a new line
+ *   * but for multiples of three prints Fizz instead of the number
+ *    * and for the multiples of five prints Buzz
+ *     * Return: Always 0 (Success)
  */
-void print_number(int n)
+int main(void)
 {
-	int copy, nth, size = 1, ones = n % 10;
+	int i;
 
-	n /= 10;
-	copy = n;
-	if (ones < 0)
+	for (i = 1; i <= 100; i++)
 	{
-		ones *= -1, copy *= -1, n *= -1;
-		_putchar('-');
-	}
-	if (copy > 0)
-	{
-		while (copy / 10 != 0)
+		if (i % 3 == 0 && i % 5 != 0)
 		{
-			copy /= 10, size *= 10;
-		}
-		while (size > 0)
+			printf(" Fizz");
+		} else if (i % 5 == 0 && i % 3 != 0)
 		{
-			nth = n / size;
-			_putchar('0' + nth);
-			n -= nth * size;
-			size /= 10;
+			printf(" Buzz");
+		} else if (i % 3 == 0 && i % 5 == 0)
+		{
+			printf(" FizzBuzz");
+		} else if (i == 1)
+		{
+			printf("%d", i);
+		} else
+		{
+			printf(" %d", i);
 		}
 	}
-	_putchar('0' + ones);
+	printf("\n");
+
+	return (0);
 }
